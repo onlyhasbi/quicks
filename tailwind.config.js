@@ -1,8 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { colors: defaultColors } = require('tailwindcss/defaultTheme');
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors: {
+      ...defaultColors,
+      transparent: 'transparent',
+      current: 'currentColor',
+      white: '#ffffff',
       primary: {
         blue: '#2F80ED',
         darkgray: '#4F4F4F',
@@ -35,5 +42,5 @@ export default {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
 };
