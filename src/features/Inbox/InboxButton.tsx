@@ -6,15 +6,21 @@ import { PopupMenuProps } from '../PopupMenu/PopupMenu';
 import { Button, DialogTrigger } from 'react-aria-components';
 import Popover from '../../components/Popover';
 import InboxPopup from './InboxPopup';
+import { useState } from 'react';
 
-function InboxButton({ selected, onSelect }: PopupMenuProps) {
+function InboxButton({ selected, onSelect }: Readonly<PopupMenuProps>) {
   const currentSelected = selected == 'inbox';
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <DialogTrigger>
+    <DialogTrigger
+      onOpenChange={(isOpen) => {
+        setIsOpen(isOpen);
+      }}
+    >
       <Button
         className={clsx({
-          relative: true,
+          'relative border-none outline-none ring-0': true,
           'animate-in fade-in duration-250 order-last': currentSelected,
         })}
         onPress={() => {
@@ -37,18 +43,20 @@ function InboxButton({ selected, onSelect }: PopupMenuProps) {
           })}
         >
           <CircleIcon
-            src={currentSelected ? discussIconWhite : discussIcon}
+            src={currentSelected && isOpen ? discussIconWhite : discussIcon}
             bgSize="w-[60px] h-[60px]"
             bgColor={clsx({
               'bg-primary-lightgray': !currentSelected,
               'bg-indicator-purple absolute -right-3 animate-in slide-in-from-left-1 duration-200':
-                currentSelected,
+                currentSelected && isOpen,
+              'bg-primary-lightgray absolute right-0 animate-in slide-in-from-left-1 duration-200':
+                currentSelected && !isOpen,
             })}
             iconSize="w-[26.67px] h-[26.67px]"
           />
         </div>
       </Button>
-      <Popover placement="top" direction="to-top">
+      <Popover placement="top" direction="to-top" offset={20}>
         <InboxPopup />
       </Popover>
     </DialogTrigger>

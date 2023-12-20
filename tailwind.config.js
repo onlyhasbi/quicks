@@ -15,6 +15,7 @@ export default {
         darkgray: '#4F4F4F',
         midgray: '#828282',
         lightgray: '#E0E0E0',
+        black:'#000000'
       },
       indicator: {
         orange: '#F8B76B',

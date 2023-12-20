@@ -1,7 +1,7 @@
-import Card from '../../components/Card';
+import PopupCard from '../PopupCard/PopupCard';
 
 function InboxPopup() {
-  return <Card>InboxPopup</Card>;
+  return <PopupCard>InboxPopup</PopupCard>;
 }
 
 export default InboxPopup;

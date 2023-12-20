@@ -5,6 +5,7 @@ import readerIconWhite from '../../assets/icon/reader-white.svg';
 import { Button, DialogTrigger } from 'react-aria-components';
 import Popover from '../../components/Popover';
 import TaskPopup from './TaskPopup';
+import { useState } from 'react';
 
 function TaskButton({
   selected,
@@ -14,11 +15,19 @@ function TaskButton({
   onSelect: (s: string) => void;
 }) {
   const currentSelected = selected == 'task';
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <DialogTrigger>
+    <DialogTrigger
+      onOpenChange={(isOpen) => {
+        setIsOpen(isOpen);
+      }}
+    >
       <Button
-        className={clsx({ relative: true, 'order-last': currentSelected })}
+        className={clsx({
+          'relative border-none outline-none ring-0': true,
+          'order-last': currentSelected,
+        })}
         onPress={() => {
           onSelect('task');
         }}
@@ -44,13 +53,15 @@ function TaskButton({
             bgColor={clsx({
               'bg-primary-lightgray': !currentSelected,
               'bg-indicator-orange absolute -right-3 animate-in slide-in-from-left-1 duration-200':
-                currentSelected,
+                currentSelected && isOpen,
+              'absolute right-0 animate-in slide-in-from-left-1 duration-200':
+                currentSelected && !isOpen,
             })}
             iconSize="w-[26.67px] h-[26.67px]"
           />
         </div>
       </Button>
-      <Popover placement="top" direction="to-top">
+      <Popover placement="top" direction="to-top" offset={20}>
         <TaskPopup />
       </Popover>
     </DialogTrigger>

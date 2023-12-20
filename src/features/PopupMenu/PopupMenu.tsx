@@ -7,7 +7,7 @@ export type PopupMenuProps = {
   onSelect: (menus: string) => void;
 };
 
-function PopupMenu({ selected, onSelect }: PopupMenuProps) {
+function PopupMenu({ selected, onSelect }: Readonly<PopupMenuProps>) {
   return (
     <div
       className={clsx({

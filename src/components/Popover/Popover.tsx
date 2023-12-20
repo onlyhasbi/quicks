@@ -1,25 +1,15 @@
 import clsx from 'clsx';
 import type { PopoverProps } from 'react-aria-components';
 import { Popover as ReactPopover } from 'react-aria-components';
-import { useMenu } from '../../context/useMenu';
 
 function Popover({
   direction,
   ...rest
 }: PopoverProps & { direction: 'to-left' | 'to-top' }) {
-  const { setIsMenuItemEnter } = useMenu();
   return (
     <ReactPopover
       {...rest}
       className={({ isEntering, isExiting }) => {
-        if (isEntering && direction === 'to-left') {
-          setIsMenuItemEnter(true);
-        }
-
-        if (isExiting && direction === 'to-left') {
-          setIsMenuItemEnter(false);
-        }
-
         return clsx({
           'animate-in fade-in slide-in-from-right-1 ease-out duration-500':
             isEntering && direction === 'to-left',

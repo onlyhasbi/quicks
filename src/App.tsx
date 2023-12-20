@@ -6,20 +6,23 @@ import Popover from './components/Popover';
 import PopupMenu from './features/PopupMenu';
 import Layout from './layout';
 import { useEffect, useState } from 'react';
-import { useMenu } from './context/useMenu';
 
 function App() {
-  const { isMenuItemEnter } = useMenu();
   const [selected, setSelected] = useState('');
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    if (!isMenuItemEnter) setSelected('');
-  }, [isMenuItemEnter]);
+    if (!isOpen) setSelected('');
+  }, [isOpen]);
 
   return (
     <Layout>
       <div className="absolute bottom-[27px] right-[34px]">
-        <DialogTrigger>
+        <DialogTrigger
+          onOpenChange={(isOpen) => {
+            setIsOpen(isOpen);
+          }}
+        >
           <Button
             className={clsx({
               'outline-none ring-0': true,
