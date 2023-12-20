@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import InboxButton from '../InboxButton';
-import TaskButton from '../TaskButton';
+import InboxButton from '../Inbox';
+import TaskButton from '../Task';
 
 export type PopupMenuProps = {
   selected: string;

@@ -1,22 +1,20 @@
-import clsx from 'clsx';
 import CircleIcon from '../../components/CircleIcon';
-import discussIcon from '../../assets/icon/questions.svg';
-import discussIconWhite from '../../assets/icon/questions-white.svg';
+import readerIcon from '../../assets/icon/reader.svg';
+import readerIconWhite from '../../assets/icon/reader-white.svg';
+import clsx from 'clsx';
+import { PopupMenuProps } from '../PopupMenu/PopupMenu';
 
-function TaskButton({
-  selected,
-  onSelect,
-}: {
-  selected: string;
-  onSelect: (s: string) => void;
-}) {
-  const currentSelected = selected == 'task';
+function InboxButton({ selected, onSelect }: PopupMenuProps) {
+  const currentSelected = selected == 'inbox';
 
   return (
     <button
-      className={clsx({ relative: true, 'order-0': currentSelected })}
+      className={clsx({
+        relative: true,
+        'animate-in fade-in duration-250 order-last': currentSelected,
+      })}
       onClick={() => {
-        onSelect('task');
+        onSelect('inbox');
       }}
     >
       <h2
@@ -26,7 +24,7 @@ function TaskButton({
           hidden: selected !== '',
         })}
       >
-        Inbox
+        Task
       </h2>
       <div
         className={clsx({
@@ -34,11 +32,11 @@ function TaskButton({
         })}
       >
         <CircleIcon
-          src={currentSelected ? discussIconWhite : discussIcon}
+          src={currentSelected ? readerIconWhite : readerIcon}
           bgSize="w-[60px] h-[60px]"
           bgColor={clsx({
             'bg-primary-lightgray': !currentSelected,
-            'bg-indicator-purple absolute -right-3 animate-in slide-in-from-left-1 duration-200':
+            'bg-indicator-orange absolute -right-3 animate-in slide-in-from-left-1 duration-200':
               currentSelected,
           })}
           iconSize="w-[26.67px] h-[26.67px]"
@@ -48,4 +46,4 @@ function TaskButton({
   );
 }
 
-export default TaskButton;
+export default InboxButton;

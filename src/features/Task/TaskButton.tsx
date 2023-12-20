@@ -1,17 +1,22 @@
-import CircleIcon from '../../components/CircleIcon';
-import readerIcon from '../../assets/icon/reader.svg';
-import readerIconWhite from '../../assets/icon/reader-white.svg';
 import clsx from 'clsx';
-import { PopupMenuProps } from '../PopupMenu/PopupMenu';
+import CircleIcon from '../../components/CircleIcon';
+import discussIcon from '../../assets/icon/questions.svg';
+import discussIconWhite from '../../assets/icon/questions-white.svg';
 
-function InboxButton({ selected, onSelect }: PopupMenuProps) {
-  const currentSelected = selected == 'inbox';
+function TaskButton({
+  selected,
+  onSelect,
+}: {
+  selected: string;
+  onSelect: (s: string) => void;
+}) {
+  const currentSelected = selected == 'task';
 
   return (
     <button
-      className={clsx({ relative: true, 'order-0': currentSelected })}
+      className={clsx({ relative: true, 'order-last': currentSelected })}
       onClick={() => {
-        onSelect('inbox');
+        onSelect('task');
       }}
     >
       <h2
@@ -21,7 +26,7 @@ function InboxButton({ selected, onSelect }: PopupMenuProps) {
           hidden: selected !== '',
         })}
       >
-        Task
+        Inbox
       </h2>
       <div
         className={clsx({
@@ -29,11 +34,11 @@ function InboxButton({ selected, onSelect }: PopupMenuProps) {
         })}
       >
         <CircleIcon
-          src={currentSelected ? readerIconWhite : readerIcon}
+          src={currentSelected ? discussIconWhite : discussIcon}
           bgSize="w-[60px] h-[60px]"
           bgColor={clsx({
             'bg-primary-lightgray': !currentSelected,
-            'bg-indicator-orange absolute -right-3 animate-in slide-in-from-left-1 duration-200':
+            'bg-indicator-purple absolute -right-3 animate-in slide-in-from-left-1 duration-200':
               currentSelected,
           })}
           iconSize="w-[26.67px] h-[26.67px]"
@@ -43,4 +48,4 @@ function InboxButton({ selected, onSelect }: PopupMenuProps) {
   );
 }
 
-export default InboxButton;
+export default TaskButton;
