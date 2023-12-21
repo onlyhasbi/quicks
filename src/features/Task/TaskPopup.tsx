@@ -1,7 +1,7 @@
-import PopupCard from '../PopupCard/PopupCard';
+import Card from '../../components/Card';
 
 function TaskPopup() {
-  return <PopupCard>TaskPopup</PopupCard>;
+  return <Card>TaskPopup</Card>;
 }
 
 export default TaskPopup;

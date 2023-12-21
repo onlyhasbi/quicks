@@ -1,8 +1,14 @@
+import clsx from 'clsx';
 import { PropsWithChildren } from 'react';
 
-function Card({ children }: Readonly<PropsWithChildren>) {
+function Card({
+  children,
+  className,
+}: Readonly<PropsWithChildren & { className?: string }>) {
   return (
-    <div className="bg-white pt-[20px] pb-[42px] px-[25px] w-[434px] h-[437px] rounded-md">
+    <div
+      className={clsx(['bg-white w-[734px] h-[437px] rounded-md', className])}
+    >
       {children}
     </div>
   );

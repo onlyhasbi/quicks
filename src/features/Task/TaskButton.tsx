@@ -48,13 +48,13 @@ function TaskButton({
           })}
         >
           <CircleIcon
-            src={currentSelected ? readerIconWhite : readerIcon}
+            src={currentSelected && isOpen ? readerIconWhite : readerIcon}
             bgSize="w-[60px] h-[60px]"
             bgColor={clsx({
               'bg-primary-lightgray': !currentSelected,
               'bg-indicator-orange absolute -right-3 animate-in slide-in-from-left-1 duration-200':
                 currentSelected && isOpen,
-              'absolute right-0 animate-in slide-in-from-left-1 duration-200':
+              'bg-primary-lightgray absolute right-0 animate-in slide-in-from-left-1 duration-200':
                 currentSelected && !isOpen,
             })}
             iconSize="w-[26.67px] h-[26.67px]"

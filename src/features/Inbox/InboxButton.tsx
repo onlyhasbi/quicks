@@ -5,8 +5,8 @@ import clsx from 'clsx';
 import { PopupMenuProps } from '../PopupMenu/PopupMenu';
 import { Button, DialogTrigger } from 'react-aria-components';
 import Popover from '../../components/Popover';
-import InboxPopup from './InboxPopup';
 import { useState } from 'react';
+import InboxChat from './InboxChat';
 
 function InboxButton({ selected, onSelect }: Readonly<PopupMenuProps>) {
   const currentSelected = selected == 'inbox';
@@ -57,7 +57,7 @@ function InboxButton({ selected, onSelect }: Readonly<PopupMenuProps>) {
         </div>
       </Button>
       <Popover placement="top" direction="to-top" offset={20}>
-        <InboxPopup />
+        <InboxChat />
       </Popover>
     </DialogTrigger>
   );
