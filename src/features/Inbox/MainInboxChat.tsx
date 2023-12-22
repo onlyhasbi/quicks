@@ -54,11 +54,8 @@ function MainInboxChat({ chat: items, onSelectId }: Props) {
             </p>
           </div>
         </div>
-        {Boolean(
-          item.message_history[0].messages.filter(
-            (message) => message.status === 'unread'
-          ).length
-        ) && (
+        {!!item.message_history.filter((message) => message.status === 'unread')
+          .length && (
           <div className="flex justify-center items-center px-3">
             <span className="block w-2 h-2 bg-indicator-red rounded-full"></span>
           </div>

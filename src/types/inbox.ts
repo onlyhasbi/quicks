@@ -1,29 +1,28 @@
-  type User = {
+type User = {
   id: string;
   name?: string;
- }
- 
- export type Message = {
+};
+
+export type Message = {
   id: string;
   text: string;
   time: string;
-  status: 'read' | 'unread';
   user: User;
- }
- 
- export type MessageHistory = {
+};
+
+export type MessageHistory = {
   id: string;
   timestamp: string;
+  status: 'read' | 'unread';
   messages: Message[];
- }
- 
- export type Chat = {
+};
+
+export type Chat = {
   id: string;
   name: string;
-  type: 'group'|'personal';
+  type: 'group' | 'personal';
   current_user_id: string;
   last_active: Date;
   participants: User[];
   message_history: MessageHistory[];
- }
- 
+};

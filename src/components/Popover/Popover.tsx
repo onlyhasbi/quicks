@@ -5,7 +5,7 @@ import { Popover as ReactPopover } from 'react-aria-components';
 function Popover({
   direction,
   ...rest
-}: PopoverProps & { direction: 'to-left' | 'to-top' }) {
+}: PopoverProps & { direction: 'to-left' | 'to-top' | 'to-bottom' }) {
   return (
     <ReactPopover
       {...rest}
@@ -19,6 +19,10 @@ function Popover({
             isEntering && direction === 'to-top',
           'animate-out fade-out slide-out-to-bottom-1 ease-in-out duration-150':
             isExiting && direction === 'to-top',
+          'animate-in fade-in slide-in-from-top-1 ease-out duration-300':
+            isEntering && direction === 'to-bottom',
+          'animate-out fade-out slide-out-to-top-1 ease-in-out duration-150':
+            isExiting && direction === 'to-bottom',
         });
       }}
     />
