@@ -43,5 +43,9 @@ export default {
     },
     extend: {},
   },
-  plugins: [require('tailwindcss-animate'), require('tailwind-scrollbar')],
+  plugins: [
+    require('tailwindcss-react-aria-components'),
+    require('tailwindcss-animate'),
+    require('tailwind-scrollbar'),
+  ],
 };

@@ -1,3 +1,4 @@
+
 function Loading() {
   return (
     <div className="flex justify-center items-center w-full min-h-[363px]">
@@ -36,9 +37,7 @@ function Loading() {
             </svg>
           </div>
         </div>
-        <p className="font-semibold text-sm text-primary-darkgray mt-5">
-          Loading Chats ...
-        </p>
+        <p className="font-semibold text-sm text-primary-darkgray mt-5">Loading Task List ...</p>
       </div>
     </div>
   );
