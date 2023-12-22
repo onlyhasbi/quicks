@@ -1,13 +1,13 @@
-import { Button } from 'react-aria-components';
 import { useRef, useState } from 'react';
 import circleLoading from '../../../assets/icon/circle-loading.svg';
+import Button from '../../../components/Button';
 
 function ChatInput({ status }: { status: boolean }) {
   const ref = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState('');
 
   const statusToDisplay = (
-    <Button className="outline-none border-none ring-0 px-3 py-1 bg-sticker-50 text-primary-blue absolute rounded-md -top-7 left-0 right-0 mx-auto">
+    <Button type="button" variant="soft">
       <a href="#unread">New Message</a>
     </Button>
   );
@@ -42,10 +42,7 @@ function ChatInput({ status }: { status: boolean }) {
           className="border border-[#828282] rounded-md px-[16px] py-[8px] w-full placeholder-primary-black placeholder:text-primary-black text-primary-black focus:border-transparent focus:ring-blue-600"
           placeholder="Type a new message"
         />
-        <Button
-          type="submit"
-          className="bg-primary-blue px-[16px] py-[8px] rounded-md text-white outline-none focus:border-none"
-        >
+        <Button variant="solid" type="submit">
           Send
         </Button>
       </form>

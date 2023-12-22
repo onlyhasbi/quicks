@@ -44,6 +44,7 @@ export default {
     extend: {},
   },
   plugins: [
+    require('@tailwindcss/forms'),
     require('tailwindcss-react-aria-components'),
     require('tailwindcss-animate'),
     require('tailwind-scrollbar'),
