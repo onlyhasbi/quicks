@@ -14,7 +14,7 @@ function Navbar() {
             <input
               id="search"
               type="text"
-              className="pl-7 py-1 rounded-sm border-0 ring-0 outline-none bg-transparent text-white"
+              className="pl-7 py-1 rounded-sm border-0 ring-0 focus:ring-0 outline-none bg-transparent text-white"
             />
           </div>
         </div>

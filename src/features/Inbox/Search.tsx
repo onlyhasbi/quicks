@@ -7,7 +7,7 @@ function Search() {
         id="searchInbox"
         type="text"
         placeholder="Search"
-        className="bg-transparent border-none outline-none w-full placeholder-primary-black placeholder:text-primary-black text-primary-black"
+        className="bg-transparent border-none outline-none ring-0 focus:ring-0 w-full placeholder-primary-black placeholder:text-primary-black text-primary-black"
       />
       <img src={searchIcon} alt="search-icon" className="w-[12px] h-[12px]" />
     </div>
