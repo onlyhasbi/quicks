@@ -2,7 +2,7 @@ import { Button, DialogTrigger } from 'react-aria-components';
 import moreHorizontal from '../../../assets/icon/more_horizontal.svg';
 import Popover from '../../../components/Popover';
 
-function ChatPopup() {
+function ChatPopup({ messageId }: { messageId: string }) {
   return (
     <DialogTrigger>
       <Button className="border-none outline-none ring-0 cursor-pointer mt-1">
@@ -14,10 +14,20 @@ function ChatPopup() {
             role="button"
             className="cursor-pointer border-b px-3 py-1 border-b-[#BDBDBD]"
           >
-            <span className="text-primary-blue">Edit</span>
+            <Button
+              onPress={() => console.log('Edit ', messageId)}
+              className="text-primary-blue"
+            >
+              Edit
+            </Button>
           </li>
           <li role="button" className="cursor-pointer px-3 py-1">
-            <span className="text-indicator-red">Delete</span>
+            <Button
+              onPress={() => console.log('Delete ', messageId)}
+              className="text-indicator-red"
+            >
+              Delete
+            </Button>
           </li>
         </ul>
       </Popover>

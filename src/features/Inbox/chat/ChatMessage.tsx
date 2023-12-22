@@ -33,7 +33,7 @@ function ChatMessage({ item, userId }: ChatMessageProps) {
               {message.user.id === userId ? 'You' : message.user.name}
             </p>
             <div className="flex items-start gap-3">
-              <ChatPopup />
+              <ChatPopup messageId={message.id} />
               <div
                 className={clsx([
                   'rounded-md',
